@@ -1,6 +1,8 @@
-Solicitud de cambio ajustada
+EJERCICIO PRACTICO DE TRABAJO COLABORATIVO:
+
+
 1. INSTALAR GIT, GENERAR LLAVE, CREAR REP Y CONECTAR
-- En GITBASH: ssh-keygen -t rsa -b 4096 -C “pascualdas@gmail.com”
+- En GITBASH: ssh-keygen -t rsa -b 4096 -C â€œpascualdas@gmail.comâ€
 - BUSCA LLAVE: c:/usuarios/usuario/.ssh/ id_rsa (Privada) & id_rsa.pub (Publica)
 - PEGAR LLAVE EN GIT: cat id_rsa.pub: abrir para copiar la llave publica en settings pegar llave publica.
 - Establecer conexion: git remote add origin git@github.com:pascualdas/origen.git
@@ -15,7 +17,7 @@ ORIGIN/MASTER - LOCAL REPO
 	----------
 WORKING DIRECTORY
 --------------------------
-2. CONFIGURACIÓN
+2. CONFIGURACIÃ“N
 - git init								- Inicializa repo
 - git clone https://github.com/getsentry/sentry.git			- Descarga archivos
 - git remote add origin https://github.com/getsentry/sentry.git		- Conecta Rem.Rep.
@@ -31,7 +33,7 @@ WORKING DIRECTORY
 
 
 
-CONFIGURACI�N DE SUPERLOG
+CONFIGURACIÓN DE SUPERLOG
 git config --global alias.superlog "log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold green)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(bold yellow)%s%C(reset) %C(bold green)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
 =======
 
