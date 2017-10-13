@@ -1,0 +1,46 @@
+Solicitud de cambio ajustada
+1. INSTALAR GIT, GENERAR LLAVE, CREAR REP Y CONECTAR
+- En GITBASH: ssh-keygen -t rsa -b 4096 -C “pascualdas@gmail.com”
+- BUSCA LLAVE: c:/usuarios/usuario/.ssh/ id_rsa (Privada) & id_rsa.pub (Publica)
+- PEGAR LLAVE EN GIT: cat id_rsa.pub: abrir para copiar la llave publica en settings pegar llave publica.
+- Establecer conexion: git remote add origin git@github.com:pascualdas/origen.git
+
+
+-------------------------
+REMOTE REPOSITORY
+-------------------------
+	|	|
+--------------------------
+ORIGIN/MASTER - LOCAL REPO
+	----------
+WORKING DIRECTORY
+--------------------------
+2. CONFIGURACIÓN
+- git init								- Inicializa repo
+- git clone https://github.com/getsentry/sentry.git			- Descarga archivos
+- git remote add origin https://github.com/getsentry/sentry.git		- Conecta Rem.Rep.
+
+3. DESCARGA AL LOCAL REPOSITORY
+- git fetch origin		- Descarga ultimos cambios del remote al Working Directory
+
+4. CARGUE DE CAMBIOS AL REMOTE REPOSITORY
+- git fetch origin 			- Siempre antes de agregar commits descarga updates
+- git merge origin/master
+- git push origin master
+
+
+
+
+CONFIGURACI�N DE SUPERLOG
+git config --global alias.superlog "log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold green)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(bold yellow)%s%C(reset) %C(bold green)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
+=======
+
+=======
+5. CONFIGURAR NUEVA TERMINAL PARA TRABAJO COLABORATIVO.
+- Compartir folder contenedor del proyecto.
+- En el nuevo computador conectar unidad de red a la ruta del directorio anterior.
+- Agregar colaborardor (usuario de gitHub) desde la cuenta del repo original
+- Intalar GIT en la nueva terminal.
+- Generar llave para el repo al que vamos a controibuir.
+- USAR COMANDO GIT LOG, GIT ADD -A, GIT COMMIT -M, GIT CHECKOUT, GIT FETCH, GIT MERGE ORIGIN/MASTER, GIT PUSH ORIGIN MASTER
+
