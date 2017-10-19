@@ -1,48 +1,90 @@
-﻿EJERCICIO PRACTICO DE TRABAJO COLABORATIVO:
+﻿* git init: inicia el repositorio en un directorio - git init proyectName.
+* git status: muestra los cambios pendiente
+* git add -A: Agregar al staging area todo
+* git commit -m "nomCommit": agrega un commit
+* git commit -am "nomCommit": agregar commit sin pasar a agregar cambios al Staging area.
+* git commit --amend: corrige o agrega cambios olvidado en el ultimo commit. git add forgotten_file y git commit --amend actualizan.
+* git show numIdCommit: muestra los cambios realizados en ese commit.
+* git tag -a nomTag -m "Desc. Tap": agrega un tar al commit actual.
+* git log: muestra resumen de commits
+* git superlog: muestra grafica de ramas e historico de commits 
+* git reset –hard numIdCommit: vuelve a ese commitId y elimina el resto.
+* git remote add origin https://github.com/try-git/try_git.git: establece conexion con un repositorio.
+* git fetch: descarga ultimos cambios de un repo remoto (git fetch origin/master o Upstream/master)
+* git pull origin master: (git fetch origin master + git merge origin/master = git pull origin master) remoto rama. descarga y fusiona actualizaciones del remoto al local.
+* git merge nomRama: absorve cambios de una rama
+* git branch "nomRama": crea una nueva rama.
+* git Branch -d nomRama: Elimina rama.
+* git checkout -b "nomRama": crea una rama y se situa en ella.
+* git checkout numIdCommit: pone head en un commit especifico, por lo mismo las versiones de los archivos.
+* git push origin master: envia los cambios locales al repo origin (remoto) configurado del git local.
+* git rebase ramaDestino: pone commits de una rama al final del ultimo commit de otra. se hacen los commit y estando sobre la rama se usa: git rebase master - en caso de quere absorver una rama exp en master
+* git diff head: muestra los ultimos cambios realizado en el localDirectory.
+* git diff --staged: muestra los ultimos cambios pasados al staging area.
 
 
-1. INSTALAR GIT, GENERAR LLAVE, CREAR REP Y CONECTAR
-- En GITBASH: ssh-keygen -t rsa -b 4096 -C â€œpascualdas@gmail.comâ€
-- BUSCA LLAVE: c:/usuarios/usuario/.ssh/ id_rsa (Privada) & id_rsa.pub (Publica)
-- PEGAR LLAVE EN GIT: cat id_rsa.pub: abrir para copiar la llave publica en settings pegar llave publica.
-- Establecer conexion: git remote add origin git@github.com:pascualdas/origen.git
+#################################################################################################################################################################################################################
+#################################################################################################################################################################################################################
+ITERACION BASICA
+* git init
+* git add -A 
+* git commit -m "Nombre Commit"
+* git commit -am "Nombre Commit" - Resume git add -a y git commit -m
+
+#################################################################################################################################################################################################################
+#################################################################################################################################################################################################################
+EJERCICIO REMOTO COLABORATIVO 
+	
+	| LOCALREPOSITORY |-| ORIGIN/MASTER |-| OROGIN | 
+
+* ssh-keygen -t rsa -b 4096 -C “pascualdas@gmail.com”
+* c:/usuarios/usuario/.ssh/ id_rsa (Privada) & id_rsa.pub (Publica)  en gitBash
+* cat id_rsa.pub: abrir para copiar la llave publica.
+* ir a github y en settings pegar llave publica.
+* git init "NombreProyecto"
+* git remote add origin git@github.com:pascualdas/origen.git - Conecta al repositorio
+
+* git clone https://github.com/getsentry/sentry.git - Descarga el contenido
+* git fetch origin master - Descarga ultimos cambios de repo origin y rama master a local
+
+* git merge origin/master - absorve cambios descargados al localDirectory
+* git pull origin master - Descarga y absorve de una a local Direct. git fetch - git merge
+
+* ITERACCION BASICA
+
+* git push origin master - envia cambios de local a origin en rama master.
 
 
--------------------------
-REMOTE REPOSITORY
--------------------------
-	|	|
---------------------------
-ORIGIN/MASTER - LOCAL REPO
-	----------
-WORKING DIRECTORY
---------------------------
-2. CONFIGURACION
-- git clone https://github.com/getsentry/sentry.git			- Descarga archivos
-- git init								- Inicializa repo en la carpeta
-- git remote add origin https://github.com/getsentry/sentry.git		- Conecta Rem.Rep.
+#################################################################################################################################################################################################################
+#################################################################################################################################################################################################################
+EJERCICIO REMOTO COLABORATIVO FORKED REPO 
 
-3. DESCARGA AL LOCAL REPOSITORY
-- git fetch origin		- Descarga ultimos cambios del remote al Working Directory
-- git merge origin/master	- Absorve lo bajado a Origin/master en Master local
+	
+	| LOCALREPOSITORY |-| UPSTREAM/MASTER |-| UPSTREAM |      - Repositorio original, del que se hizo fork
+	| LOCALREPOSITORY |-| ORIGIN/MASTER |-| OROGIN |	  - Repositorio forked en nuestro GitHub y desd el que se envian los pullRequest
+ 
+* ssh-keygen -t rsa -b 4096 -C “pascualdas@gmail.com”
+* c:/usuarios/usuario/.ssh/ id_rsa (Privada) & id_rsa.pub (Publica)  en gitBash
+* cat id_rsa.pub: abrir para copiar la llave publica.
+* ir a github y en settings pegar llave publica.
+* git init "NombreProyecto"
 
-4. CARGUE DE CAMBIOS AL REMOTE REPOSITORY
-- git fetch origin 			- Siempre antes de agregar commits descarga updates
-- git push origin master
+* git remote add upstream [HTTPS ó SSH del proyecto "main"]  - Conecta a repositorio Original
+* git remote add origin [HTTPS ó SSH del proyecto forked]    - Conecta a repositorio forked
 
+* git clone https://github.com/getsentry/sentry.git - Descarga el contenido
+* git fetch upstream                                - Descarga ultimos cambios del directorio original
+* git fetch origin				    - Descarga ultimos cambios del directorio focked
 
+* git merge upstream/master			    - Absorve los cambios del repo original al local Directory
+* git merge origin/master			    - Absorve los cambios del forcked al local Directory
 
+* git pull origin master o git pull upstream master - Descarga y absorve de una a local Direct. git fetch - git merge
+
+* ITERACCION BASICA
+
+* git push origin master - envia cambios de local a origin en rama master - repo forked - desde allí se envia solicitud de pullrequest y se hacen comentarios.
+#################################################################################################################################################################################################################
 
 CONFIGURACIÓN DE SUPERLOG
 git config --global alias.superlog "log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold green)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(bold yellow)%s%C(reset) %C(bold green)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
-=======
-
-=======
-5. CONFIGURAR NUEVA TERMINAL PARA TRABAJO COLABORATIVO.
-- Compartir folder contenedor del proyecto.
-- En el nuevo computador conectar unidad de red a la ruta del directorio anterior.
-- Agregar colaborardor (usuario de gitHub) desde la cuenta del repo original
-- Intalar GIT en la nueva terminal.
-- Generar llave para el repo al que vamos a controibuir.
-- USAR COMANDO GIT LOG, GIT ADD -A, GIT COMMIT -M, GIT CHECKOUT, GIT FETCH, GIT MERGE ORIGIN/MASTER, GIT PUSH ORIGIN MASTER
-
