@@ -1,4 +1,4 @@
-﻿* git init: inicia el repositorio en un directorio - git init proyectName.
+﻿﻿* git init: inicia el repositorio en un directorio - git init proyectName.
 * git status: muestra los cambios pendiente
 * git add -A: Agregar al staging area todo
 * git commit -m "nomCommit": agrega un commit
@@ -21,6 +21,12 @@
 * git rebase ramaDestino: pone commits de una rama al final del ultimo commit de otra. se hacen los commit y estando sobre la rama se usa: git rebase master - en caso de quere absorver una rama exp en master
 * git diff head: muestra los ultimos cambios realizado en el localDirectory.
 * git diff --staged: muestra los ultimos cambios pasados al staging area.
+=======
+﻿﻿ajuste5
+git tag -a v1.4 -m "my version 1.4"
+
+﻿EJERCICIO PRACTICO DE TRABAJO COLABORATIVO - 
+
 
 
 #################################################################################################################################################################################################################
