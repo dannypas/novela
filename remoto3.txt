@@ -3,3 +3,5 @@ Remoto3
 Contenido agregado localmente - final.
 
 Este es el ultimo commit resolviendo problemas.
+
+Prueba de git diff head
