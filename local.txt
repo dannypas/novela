@@ -1,3 +1,5 @@
+CAMBIOS PROPUESTOS
+
 ﻿﻿* git init: inicia el repositorio en un directorio - git init proyectName.
 * git status: muestra los cambios pendiente
 * git add -A: Agregar al staging area todo
